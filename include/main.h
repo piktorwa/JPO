@@ -85,7 +85,7 @@ public:
 					auto wynik{ 0.0 };
 					size_t found_liczba1 = liczba1.find(".");
 					size_t found_liczba2 = liczba2.find(".");
-					wyrazenie.erase(index_liczby[0][0], index_liczby[1][1] - index_liczby[0][0] + 1);
+					wyrazenie.erase(index_liczby[0][0], index_liczby[1][1] - index_liczby[0][0]);
 					if (found_liczba1 != string::npos || found_liczba2 != string::npos) {
 						auto mnozona{ 0.0 };
 						auto mnoznik{ 0.0 };
