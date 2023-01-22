@@ -1,7 +1,8 @@
 // ==========================================================================
 //
-// Main header file, where program starts. 
-//
+// In this header file is defined how to divide sentence provided by user
+// and then how to calculate derivative
+// 
 // ==========================================================================
 
 #pragma once
@@ -15,7 +16,7 @@ using std::string, std::vector;
 using podzielone = vector <string>;
 using doZrozniczkowania = vector <bool>;
 
-class Ladder {
+class Ladder { //klasa dzielac¹ podane wyra¿enie na mniejsze fragmenty a¿ do funkcji elementarnych, oraz ³¹cz¹ca wynik pochodnych w ci¹g znaków
 private:
 	podzielone divided;
 	doZrozniczkowania checkToDerivative;
@@ -30,7 +31,7 @@ public:
 		divided = result;
 	}
 public:	
-	void dividing(string skladowa) {
+	void dividing(string skladowa) { //funkcja dzielaca podane wyrazenie na mniejsze czesci do zrozniczkowania
 		int bracket_counter{ 0 };//zmienna pilnuj¹ca nawiasy, je¿eli nie jest równa 0 to nie podzieli wyrazenia na mniejsze czesci
 		size_t skladowa_index[2]{};//zmienan przechowujaca indexy wyrazenia do wyciecia
 		for (int i = 0; i < skladowa.length();i++) {
@@ -121,20 +122,26 @@ public:
 		dividing(skladowa.substr(1,skladowa.length()-2));
 		return ;
 	}
-	string makeString(Ladder skladowe) {
+	string makeString(Ladder skladowe) { //funkcja laczaca policzone fragmenty wyrazenia z powrotem w format string, a nastepnie zwracajaca ten ciag znakow.
 		string result{};
 		for (int i = 0; i < skladowe.divided.size(); i++)result += skladowe.divided[i];
 		return result;
 	}
 };
 
-class derTable :public Ladder {
+class derTable :public Ladder {//klasa definiujaca sposob obliczenia pochodnej
 public:
 	derTable() :Ladder() {}
 	~derTable(){}
-private:
+public:
+	podzielone derivativeIt(podzielone fragment, doZrozniczkowania check) {
+		for (auto i = 0; i < fragment.size(); i++) {
+			if (check[i]) {
 
-
+			}
+		}
+		return fragment;
+	}
 };
 
 string derivative(string wyrazenie);
