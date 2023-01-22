@@ -17,7 +17,7 @@ using podzielone = vector <string>;
 using doZrozniczkowania = vector <bool>;
 
 class Ladder { //klasa dzielac¹ podane wyra¿enie na mniejsze fragmenty a¿ do funkcji elementarnych, oraz ³¹cz¹ca wynik pochodnych w ci¹g znaków
-private:
+protected:
 	podzielone divided;
 	doZrozniczkowania checkToDerivative;
 public:
@@ -26,6 +26,9 @@ public:
 public:
 	podzielone getDivided() {
 		return divided;
+	}
+	doZrozniczkowania getCheckToDerivative() {
+		return checkToDerivative;
 	}
 	void setDivided(podzielone result) {
 		divided = result;
@@ -122,11 +125,6 @@ public:
 		dividing(skladowa.substr(1,skladowa.length()-2));
 		return ;
 	}
-	string makeString(Ladder skladowe) { //funkcja laczaca policzone fragmenty wyrazenia z powrotem w format string, a nastepnie zwracajaca ten ciag znakow.
-		string result{};
-		for (int i = 0; i < skladowe.divided.size(); i++)result += skladowe.divided[i];
-		return result;
-	}
 };
 
 class derTable :public Ladder {//klasa definiujaca sposob obliczenia pochodnej
@@ -134,13 +132,21 @@ public:
 	derTable() :Ladder() {}
 	~derTable(){}
 public:
-	podzielone derivativeIt(podzielone fragment, doZrozniczkowania check) {
+	void derivativeIt(podzielone fragment, doZrozniczkowania check) {//funkcja maj¹ca policzyæ pochodn¹, na ten moment pusta
 		for (auto i = 0; i < fragment.size(); i++) {
 			if (check[i]) {
 
 			}
 		}
-		return fragment;
+		return;
+	}
+private:
+	podzielone derived;
+public:
+	string makeString() { //funkcja laczaca policzone fragmenty wyrazenia z powrotem w format string, a nastepnie zwracajaca ten ciag znakow.
+		string result{};
+		for (int i = 0; i < derived.size(); i++)result += derived[i];
+		return result;
 	}
 };
 

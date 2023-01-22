@@ -63,7 +63,7 @@ public:
 					int j = i - 1;
 					while (j > 0) {
 						if (wyrazenie[j] == '+' || wyrazenie[j] == '-' || wyrazenie[j] == '*' || wyrazenie[j] == '/') {
-							index_liczby[0][0] = j + 1;
+							index_liczby[0][0] = size_t(j + 1);
 							break;
 						}
 						j--;
@@ -71,7 +71,7 @@ public:
 					j = i + 1;
 					while (j < wyrazenie.length()) {
 						if (wyrazenie[j] == '+' || wyrazenie[j] == '-' || wyrazenie[j] == '*' || wyrazenie[j] == '/' || wyrazenie[j] == ')') {
-							index_liczby[1][1] = j - 1;
+							index_liczby[1][1] = size_t(j - 1);
 							break;
 						}
 						if (j==wyrazenie.length()-1 && wyrazenie[j] != ')') {
@@ -146,7 +146,7 @@ public:
 					int j = i - 1;
 					while (j > 0) {
 						if (wyrazenie[j] == '+' || wyrazenie[j] == '-' || wyrazenie[j] == '*' || wyrazenie[j] == '/') {
-							index_liczby[0][0] = j + 1;
+							index_liczby[0][0] = size_t(j + 1);
 							break;
 						}
 						j--;
@@ -154,7 +154,7 @@ public:
 					j = i + 1;
 					while (j < wyrazenie.length()) {
 						if (wyrazenie[j] == '+' || wyrazenie[j] == '-' || wyrazenie[j] == '*' || wyrazenie[j] == '/' || wyrazenie[j] == ')') {
-							index_liczby[1][1] = j - 1;
+							index_liczby[1][1] = size_t(j - 1);
 							break;
 						}
 						if (j == wyrazenie.length() - 1 && wyrazenie[j] != ')') {
